@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>Trainee Telemetria</h1>
-    <ul>
+    <!-- <ul>
       <li>Corrente Motor: <span id="correnteMotor"></span></li>
       <li>Corrente Baterias: <span id="correnteBaterias"></span></li>
       <li>Temperatura: <span id="temperatura"></span></li>
@@ -39,5 +39,51 @@
         document.getElementById('updateAt').textContent = newData.updateAt;
       });
     </script>
+  </body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Socket.IO Example</title>
+    <script src="https://cdn.socket.io/3.1.3/socket.io.js"></script>
+    <script>
+      // establish a connection with the server
+      const socket = io('https://trainee-telemetria.onrender.com');
+
+      // listen to the 'info' event emitted by the server
+      socket.on('info', function(data) {
+        // update the HTML elements with the received data
+        document.getElementById('correnteMotor').innerHTML = data.correnteMotor;
+        document.getElementById('correnteBaterias').innerHTML = data.correnteBaterias;
+        document.getElementById('temperatura').innerHTML = data.temperatura;
+        document.getElementById('umidade').innerHTML = data.umidade;
+        document.getElementById('tensaoAlimentacaoPCB').innerHTML = data.tensaoAlimentacaoPCB;
+        document.getElementById('estadoStringSolar1').innerHTML = data.estadoStringSolar1;
+        document.getElementById('estadoStringSolar2').innerHTML = data.estadoStringSolar2;
+        document.getElementById('tensaoSaidaMPPT').innerHTML = data.tensaoSaidaMPPT;
+        document.getElementById('tensaoEntradaMPPT').innerHTML = data.tensaoEntradaMPPT;
+        document.getElementById('correnteMPPT').innerHTML = data.correnteMPPT;
+        document.getElementById('updateAt').innerHTML = data.updateAt;
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Trainee Telemetria</h1>
+    <ul>
+      <li>Corrente Motor: <span id="correnteMotor"></span></li>
+      <li>Corrente Baterias: <span id="correnteBaterias"></span></li>
+      <li>Temperatura: <span id="temperatura"></span></li>
+      <li>Umidade: <span id="umidade"></span></li>
+      <li>Tensão Alimentação PCB: <span id="tensaoAlimentacaoPCB"></span></li>
+      <li>Estado String Solar 1: <span id="estadoStringSolar1"></span></li>
+      <li>Estado String Solar 2: <span id="estadoStringSolar2"></span></li>
+      <li>Tensão Saída MPPT: <span id="tensaoSaidaMPPT"></span></li>
+      <li>Tensão Entrada MPPT: <span id="tensaoEntradaMPPT"></span></li>
+      <li>Corrente MPPT: <span id="correnteMPPT"></span></li>
+      <li>Última atualização: <span id="updateAt"></span></li>
+    </ul>
   </body>
 </html>
