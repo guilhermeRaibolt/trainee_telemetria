@@ -1,0 +1,17 @@
+{
+  "name": "servidor-telemetria-para-trainee",
+  "version": "1.0.0",
+  "main": "trainee_telemetria.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1",
+    "socket.io-client": "^4.6.1"
+  },
+  "description": ""
+}

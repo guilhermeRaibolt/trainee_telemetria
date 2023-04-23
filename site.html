@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Socket.IO Example</title>
+  </head>
+  <body>
+    <h1>Trainee Telemetria</h1>
+    <ul>
+      <li>Corrente Motor: <span id="correnteMotor"></span></li>
+      <li>Corrente Baterias: <span id="correnteBaterias"></span></li>
+      <li>Temperatura: <span id="temperatura"></span></li>
+      <li>Umidade: <span id="umidade"></span></li>
+      <li>Tensão Alimentação PCB: <span id="tensaoAlimentacaoPCB"></span></li>
+      <li>Estado String Solar 1: <span id="estadoStringSolar1"></span></li>
+      <li>Estado String Solar 2: <span id="estadoStringSolar2"></span></li>
+      <li>Tensão Saída MPPT: <span id="tensaoSaidaMPPT"></span></li>
+      <li>Tensão Entrada MPPT: <span id="tensaoEntradaMPPT"></span></li>
+      <li>Corrente MPPT: <span id="correnteMPPT"></span></li>
+      <li>Última atualização: <span id="updateAt"></span></li>
+    </ul>
+
+    <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
+    <script>
+      const socket = io('http://localhost:3000');
+
+      socket.on('info', (newData) => {
+        document.getElementById('correnteMotor').textContent = newData.correnteMotor;
+        document.getElementById('correnteBaterias').textContent = newData.correnteBaterias;
+        document.getElementById('temperatura').textContent = newData.temperatura;
+        document.getElementById('umidade').textContent = newData.umidade;
+        document.getElementById('tensaoAlimentacaoPCB').textContent = newData.tensaoAlimentacaoPCB;
+        document.getElementById('estadoStringSolar1').textContent = newData.estadoStringSolar1;
+        document.getElementById('estadoStringSolar2').textContent = newData.estadoStringSolar2;
+        document.getElementById('tensaoSaidaMPPT').textContent = newData.tensaoSaidaMPPT;
+        document.getElementById('tensaoEntradaMPPT').textContent = newData.tensaoEntradaMPPT;
+        document.getElementById('correnteMPPT').textContent = newData.correnteMPPT;
+        document.getElementById('updateAt').textContent = newData.updateAt;
+      });
+    </script>
+  </body>
+</html>
